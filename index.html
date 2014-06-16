@@ -41,8 +41,8 @@
 	var championsList;
 	$.getJSON("json/champions.json", function(data) {
 		champions = data.data;
-		var lim = champions.length;
-		alert(lim);
+		for (var key in champions)
+			console.log(key);
 	});
 	
 	//SlimScroll
