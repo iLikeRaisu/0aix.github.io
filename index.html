@@ -38,8 +38,11 @@
 	<script type="text/javascript">
 	//Load JSONs
 	var champions;
+	var championsList;
 	$.getJSON("json/champions.json", function(data) {
-		alert("hi");
+		champions = data.data;
+		var lim = champions.length;
+		alert(lim);
 	});
 	
 	//SlimScroll
