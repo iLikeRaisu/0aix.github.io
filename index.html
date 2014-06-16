@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LolKeep</title>
+	<link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+</head>
+<body>
+	<div id="leftbar">
+		<div id="search">
+			<input type="text" id="searchbox" maxlength="12" />
+		</div>
+		<div id="container">
+			<div id="scroll">
+				<div class="box" id="Aatrox">
+					<div class="imgsection">
+						<img class="icon" src="champions/Aatrox.png">
+					</div>
+					<div class="txtsection">
+						<h1>Aatrox</h1>
+					</div>
+				</div>
+				<div class="box" id="Ahri">
+					<div class="imgsection">
+						<img class="icon" src="champions/Ahri.png">
+					</div>
+					<div class="txtsection">
+						<h1>Ahri</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<main>
+		
+	</main>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript">
+	//Load JSONs
+	var champions;
+	$.getJSON("json/champions.json", function(data) {
+		alert("hi");
+	});
+	
+	//SlimScroll
+	$("div#scroll").slimScroll({
+		railColor: '#ffffff',
+		height: '100%',
+		railVisible: true,
+		alwaysVisible: true
+	});
+	
+	//Populate champion list
+	
+	
+	//Selector
+	$("div.box").click(function()
+	{
+		$("div.box").css("background-color", "#FF0000");
+		$(this).css("background-color", "#FFFF00");
+	});
+	</script>
+</body>
+</html>
