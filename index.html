@@ -82,6 +82,10 @@
 		{
 			$("div.box").css("background-color", "#FF0000");
 			$(id).css("background-color", "#FFFF00");
+			$("#searchbox").val(keyNameList[id]);
+			$("#searchbox").focus();
+			document.title = "LoLKeep - " + keyNameList[id];
+			window.location.hash = id;
 		}
 	}
 	
@@ -95,6 +99,19 @@
 			var lim = championsList.length;
 			for (var i = 0; i < lim; i++)
 				keyNameList[championsList[i].key] = championsList[i].name;
+			if (window.location.hash)
+			{
+				if (window.location.hash)
+				{
+					var hash = window.location.hash;
+					hash = hash.charAt(0).toUpperCase() + hash.slice(1);
+					if (keyNameList[hash])
+					{
+						selected = hash;
+						Select("div#" + selected);
+					}
+				}
+			}
 			PopulateList();
 		});
 		
@@ -112,7 +129,6 @@
 			{
 				selected = searchList[0];
 				Select("div#" + selected);
-				$("#searchbox").val(keyNameList[selected]);
 			}
 			else if (event.which == 27)
 				$("#searchbox").val("");
