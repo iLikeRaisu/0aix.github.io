@@ -63,10 +63,17 @@
 		}
 		$("div#scroll").html(inner);
 		Select("div#" + selected);
-		/*$("div.box").click(function() {
+		$("div.box").click(function() {
 			selected = $(this).attr("id");
 			Select("div#" + selected);
-		});*/
+		});
+		$("div.box").hover(function() {
+			if ($(this).attr("id") != selected)
+				$(this).css("background-color", "#FF2200");
+		}, function() {
+			if ($(this).attr("id") != selected)
+				$(this).css("background-color", "#FF0000");
+		});
 	}
 	
 	//Selector
@@ -90,6 +97,7 @@
 				keyNameList[championsList[i].key] = championsList[i].name;
 			PopulateList();
 		});
+		
 		//SlimScroll
 		$("div#scroll").slimScroll({
 			railColor: '#ffffff',
@@ -97,19 +105,11 @@
 			railVisible: true,
 			alwaysVisible: true
 		});
-		
-		//Select Champion
-		$(".box").click(function() {
-			selected = $(this).attr("id");
-			Select("div#" + selected);
-		});
-		
+	
 		//Search Box
 		$("#searchbox").keyup(function() {
 			PopulateList();
-		});
-		$("#searchbox").change(function() {
-			if(searchList.length == 1)
+			if (event.KeyCode == 13) //Enter
 			{
 				selected = searchList[0];
 				Select("div#" + selected);
