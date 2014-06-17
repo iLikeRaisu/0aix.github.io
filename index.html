@@ -80,7 +80,7 @@
 		if (id != "")
 		{
 			document.title = "LoLKeep - " + keyNameList[id];
-			window.location.hash = id;
+			history.pushState(null, null, "#" + id);
 			selected = id;
 			$("div.box").css("background-color", "#FF0000");
 			$(("div#" + id)).css("background-color", "#FFFF00");
@@ -99,13 +99,10 @@
 				keyNameList[championsList[i].key] = championsList[i].name;
 			if (window.location.hash)
 			{
-				if (window.location.hash)
-				{
-					var hash = window.location.hash;
-					hash = hash.charAt(0).toUpperCase() + hash.slice(1);
-					if (keyNameList[hash])
-						Select(hash);
-				}
+				var hash = window.location.hash;
+				hash = hash.charAt(1).toUpperCase() + hash.slice(2);
+				if (keyNameList[hash])
+					Select(hash);
 			}
 			PopulateList();
 		});
