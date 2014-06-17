@@ -127,7 +127,7 @@
 		});
 	
 		//Search Box
-		$("#searchbox").keydown(function(event) {
+		$("#searchbox").keyup(function(event) {
 			if (event.which == 13) //Enter
 				Select(searchList[0]);
 			else if (event.which == 27) //Escape
