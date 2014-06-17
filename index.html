@@ -26,14 +26,6 @@
 	var searchList = [];
 	var selected = "";
 	
-	$.getJSON("json/champions.json", function(data) {
-		champions = data.data;
-		for (var key in champions)
-			championsList.push({ "name": champions[key].name, "title": champions[key].title });
-		championsList = sortByKey(championsList, "name");
-		searchList = championsList;
-	});
-	
 	function sortByKey(array, key) {
 		return array.sort(function(a, b) {
 			var x = a[key]; var y = b[key];
@@ -99,6 +91,13 @@
 	
 	//onLoad
 	$(document).ready({
+		$.getJSON("json/champions.json", function(data) {
+			champions = data.data;
+			for (var key in champions)
+				championsList.push({ "name": champions[key].name, "title": champions[key].title });
+			championsList = sortByKey(championsList, "name");
+			searchList = championsList;
+		});
 		PopulateList();
 	}
 	</script>
