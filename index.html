@@ -79,11 +79,16 @@
 	function Select(id) {
 		if (id != "")
 		{
-			document.title = "LoLKeep - " + keyNameList[id];
-			history.pushState(null, null, "#" + id);
-			selected = id;
 			$("div.box").css("background-color", "#FF0000");
-			$(("div#" + id)).css("background-color", "#FFFF00");
+			document.title = "LoLKeep - " + keyNameList[id];
+			$("#searchbox").val(keyNameList[id]);
+			$("#searchbox").focus();
+			selected = id;
+			var temp = $(("div#" + id));
+			temp.removeAttr("id");
+			location.hash = id;
+			temp.attr("id", id);
+			temp.css("background-color", "#FFFF00");
 		}
 	}
 	
