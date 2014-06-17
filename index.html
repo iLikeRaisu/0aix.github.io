@@ -96,6 +96,8 @@
 		}
 	}
 	
+	///////////////////////HIGHLIGHT TAB MOVES BY ARROW KEYS (LOW PRIORITY)
+	
 	//onLoad
 	$(document).ready(function() {
 		$.getJSON("json/champions.json", function(data) {
@@ -125,7 +127,7 @@
 		});
 	
 		//Search Box
-		$("#searchbox").keyup(function(event) {
+		$("#searchbox").keypress(function(event) { //keyup or keypress?
 			if (event.which == 13) //Enter
 				Select(searchList[0]);
 			else if (event.which == 27) //Escape
