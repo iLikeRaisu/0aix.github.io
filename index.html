@@ -81,12 +81,12 @@
 	//Selector
 	$("div.box").click(function() {
 		selected = $(this).attr("id");
-		Select(selected);
+		Select("div#" + selected);
 	});
 	
 	function Select(id) {
 		$("div.box").css("background-color", "#FF0000");
-		$("div#" + id).css("background-color", "#FFFF00");
+		$(id).css("background-color", "#FFFF00");
 	}
 	
 	//onLoad
