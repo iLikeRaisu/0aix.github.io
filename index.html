@@ -48,7 +48,7 @@
 		if (delimiter != "")
 		{
 			var lim = championsList.length;
-			for (int i = 0; i < lim; i++)
+			for (var i = 0; i < lim; i++)
 			{
 				if(championsList[i].name.indexOf(delimiter) > -1)
 					searchList.push(championsList[i].name);
@@ -59,7 +59,7 @@
 			
 		lim = searchList.length;
 		var inner = "";
-		for (int i = 0; i < lim; i++)
+		for (var i = 0; i < lim; i++)
 		{
 			var name = searchList[i];
 			inner += '<div class="box" id="' + name + '"><div class="imgsection"><img class="icon" src="champions/' + name + '.png"></div><div class="txtsection"><h1>' + name + '</h1></div></div>';
