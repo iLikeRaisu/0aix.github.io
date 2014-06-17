@@ -108,12 +108,15 @@
 	
 		//Search Box
 		$("#searchbox").keyup(function(event) {
-			PopulateList();
 			if (event.which == 13) //Enter
 			{
 				selected = searchList[0];
 				Select("div#" + selected);
+				$("searchbox").val(keyNameList[selected]);
 			}
+			else if (event.which == 27)
+				$("searchbox").val("");
+			PopulateList();
 		});
 	});
 	</script>
