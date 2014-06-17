@@ -55,7 +55,11 @@
 			}
 		}
 		else
-			searchList = championsList;
+		{
+			var lim = championsList.length;
+			for (var i = 0; i < lim; i++)
+					searchList.push(championsList[i].name);
+		}
 			
 		lim = searchList.length;
 		var inner = "";
@@ -68,10 +72,6 @@
 		Select(selected);
 	}
 	
-	$("#searchbox").change(function() {
-		PopulateList();
-	});
-	
 	//...
 	function ClearList() {
 		searchList = [];
@@ -79,11 +79,6 @@
 	}
 	
 	//Selector
-	$("div.box").click(function() {
-		selected = $(this).attr("id");
-		Select("div#" + selected);
-	});
-	
 	function Select(id) {
 		$("div.box").css("background-color", "#FF0000");
 		$(id).css("background-color", "#FFFF00");
@@ -96,7 +91,13 @@
 			for (var key in champions)
 				championsList.push({ "name": champions[key].name, "title": champions[key].title });
 			championsList = sortByKey(championsList, "name");
-			searchList = championsList;
+		});
+		$("div.box").click(function() {
+			selected = $(this).attr("id");
+			Select("div#" + selected);
+		});
+		$("#searchbox").change(function() {
+			PopulateList();
 		});
 		PopulateList();
 	});
