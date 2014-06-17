@@ -64,7 +64,8 @@
 		$("div#scroll").html(inner);
 		//Highlight selected
 		$("div.box").css("background-color", "#FF0000");
-		$(("div#" + selected)).css("background-color", "#FFFF00");
+		if (selected != "")
+			$(("div#" + selected)).css("background-color", "#FFFF00");
 		//
 		$("div.box").click(function() {
 			Select($(this).attr("id"));
