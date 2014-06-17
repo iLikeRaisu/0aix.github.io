@@ -131,6 +131,18 @@
 				$("#searchbox").val("");
 			PopulateList();
 		});
+		
+		//Hash Change
+		$(window).on("hashchange", function() {
+			if (window.location.hash)
+			{
+				var hash = window.location.hash;
+				hash = hash.charAt(1).toUpperCase() + hash.slice(2);
+				if (keyNameList[hash])
+					Select(hash);
+			}
+			PopulateList();
+		});
 	});
 	</script>
 </body>
