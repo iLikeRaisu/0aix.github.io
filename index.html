@@ -38,12 +38,21 @@
 	<script type="text/javascript">
 	//Load JSONs
 	var champions;
-	var championsList;
+	var championsList = [];
 	$.getJSON("json/champions.json", function(data) {
 		champions = data.data;
 		for (var key in champions)
-			console.log(key);
+			championsList.push({ "name": champions[key].name, "title": champions[key].title });
+		championsList = sortByKey(championsList, "name");
+		console.log(championsList);
 	});
+	
+	function sortByKey(array, key) {
+		return array.sort(function(a, b) {
+			var x = a[key]; var y = b[key];
+			return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+		});
+	}
 	
 	//SlimScroll
 	$("div#scroll").slimScroll({
