@@ -23,6 +23,7 @@
 	//Load JSONs
 	var champions;
 	var championsList = [];
+	var keyNameList = [];
 	var searchList = [];
 	var selected = "";
 	
@@ -51,22 +52,22 @@
 			for (var i = 0; i < lim; i++)
 			{
 				if(championsList[i].name.toLowerCase().indexOf(delimiter) > -1)
-					searchList.push(championsList[i].name);
+					searchList.push(championsList[i].key);
 			}
 		}
 		else
 		{
 			var lim = championsList.length;
 			for (var i = 0; i < lim; i++)
-					searchList.push(championsList[i].name);
+				searchList.push(championsList[i].key);
 		}
 			
 		lim = searchList.length;
 		var inner = "";
 		for (var i = 0; i < lim; i++)
 		{
-			var name = searchList[i];
-			inner += '<div class="box" id="' + name + '"><div class="imgsection"><img class="icon" src="champions/' + name + '.png"></div><div class="txtsection"><h1>' + name + '</h1></div></div>';
+			var key = searchList[i];
+			inner += '<div class="box" id="' + key + '"><div class="imgsection"><img class="icon" src="champions/' + keyNameList[key] + '.png"></div><div class="txtsection"><h1>' + keyNameList[key] + '</h1></div></div>';
 		}
 		$("div#scroll").html(inner);
 		Select("div#" + selected);
@@ -90,8 +91,11 @@
 		$.getJSON("json/champions.json", function(data) {
 			champions = data.data;
 			for (var key in champions)
-				championsList.push({ "name": champions[key].name, "title": champions[key].title });
+				championsList.push({ "key": key, "name": champions[key].name, "title": champions[key].title });
 			championsList = sortByKey(championsList, "name");
+			var lim = championsList.length;
+			for (var i = 0; i < lim; i++)
+				keyNameList[championsList[i].key] = championsList[i].name;
 			PopulateList();
 		});
 		$(".box").click(function() {
