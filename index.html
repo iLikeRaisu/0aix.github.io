@@ -62,10 +62,9 @@
 			inner += '<div class="box" id="' + key + '"><div class="imgsection"><img class="icon" src="champions/' + keyNameList[key] + '.png"></div><div class="txtsection"><h1>' + keyNameList[key] + '</h1></div></div>';
 		}
 		$("div#scroll").html(inner);
-		Select("div#" + selected);
+		Select(selected);
 		$("div.box").click(function() {
-			selected = $(this).attr("id");
-			Select(selected);
+			Select($(this).attr("id"));
 		});
 		$("div.box").hover(function() {
 			if ($(this).attr("id") != selected)
@@ -82,6 +81,7 @@
 		{
 			document.title = "LoLKeep - " + keyNameList[id];
 			window.location.hash = id;
+			selected = id;
 			$("div.box").css("background-color", "#FF0000");
 			$(("div#" + id)).css("background-color", "#FFFF00");
 		}
@@ -104,10 +104,7 @@
 					var hash = window.location.hash;
 					hash = hash.charAt(0).toUpperCase() + hash.slice(1);
 					if (keyNameList[hash])
-					{
-						selected = hash;
-						Select(selected);
-					}
+						Select(hash);
 				}
 			}
 			PopulateList();
@@ -124,11 +121,8 @@
 		//Search Box
 		$("#searchbox").keyup(function(event) {
 			if (event.which == 13) //Enter
-			{
-				selected = searchList[0];
-				Select(selected);
-			}
-			else if (event.which == 27)
+				Select(searchList[0]);
+			else if (event.which == 27) //Escape
 				$("#searchbox").val("");
 			PopulateList();
 		});
