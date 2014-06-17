@@ -51,7 +51,7 @@
 			var lim = championsList.length;
 			for (var i = 0; i < lim; i++)
 			{
-				if(championsList[i].name.toLowerCase().indexOf(delimiter) > -1)
+				if(championsList[i].name.toLowerCase().startsWith(delimiter))
 					searchList.push(championsList[i].key);
 			}
 		}
