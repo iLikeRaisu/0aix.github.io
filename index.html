@@ -65,7 +65,7 @@
 		Select("div#" + selected);
 		$("div.box").click(function() {
 			selected = $(this).attr("id");
-			Select("div#" + selected);
+			Select(selected);
 		});
 		$("div.box").hover(function() {
 			if ($(this).attr("id") != selected)
@@ -78,14 +78,12 @@
 	
 	//Selector
 	function Select(id) {
-		if (id != "div#")
+		if (id != "")
 		{
-			$("div.box").css("background-color", "#FF0000");
-			$(id).css("background-color", "#FFFF00");
-			$("#searchbox").val(keyNameList[id]);
-			$("#searchbox").focus();
 			document.title = "LoLKeep - " + keyNameList[id];
 			window.location.hash = id;
+			$("div.box").css("background-color", "#FF0000");
+			$(("div#" + id)).css("background-color", "#FFFF00");
 		}
 	}
 	
@@ -108,7 +106,7 @@
 					if (keyNameList[hash])
 					{
 						selected = hash;
-						Select("div#" + selected);
+						Select(selected);
 					}
 				}
 			}
@@ -128,7 +126,7 @@
 			if (event.which == 13) //Enter
 			{
 				selected = searchList[0];
-				Select("div#" + selected);
+				Select(selected);
 			}
 			else if (event.which == 27)
 				$("#searchbox").val("");
