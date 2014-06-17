@@ -34,14 +34,6 @@
 		});
 	}
 	
-	//SlimScroll
-	$("div#scroll").slimScroll({
-		railColor: '#ffffff',
-		height: '100%',
-		railVisible: true,
-		alwaysVisible: true
-	});
-	
 	//Champion list
 	function PopulateList() {
 		searchList = [];
@@ -97,6 +89,13 @@
 			for (var i = 0; i < lim; i++)
 				keyNameList[championsList[i].key] = championsList[i].name;
 			PopulateList();
+		});
+		//SlimScroll
+		$("div#scroll").slimScroll({
+			railColor: '#ffffff',
+			height: '100%',
+			railVisible: true,
+			alwaysVisible: true
 		});
 		$(".box").click(function() {
 			selected = $(this).attr("id");
