@@ -11,22 +11,6 @@
 		</div>
 		<div id="container">
 			<div id="scroll">
-				<div class="box" id="Aatrox">
-					<div class="imgsection">
-						<img class="icon" src="champions/Aatrox.png">
-					</div>
-					<div class="txtsection">
-						<h1>Aatrox</h1>
-					</div>
-				</div>
-				<div class="box" id="Ahri">
-					<div class="imgsection">
-						<img class="icon" src="champions/Ahri.png">
-					</div>
-					<div class="txtsection">
-						<h1>Ahri</h1>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -67,14 +51,20 @@
 	
 	//Champion list
 	function PopulateList() {
+		searchList = [];
 		var delimiter = $("#searchbox).val();
-		var lim = championsList.length;
-		for (int i = 0; i < lim; i++)
+		if (delimiter != "")
 		{
-			if(championsList[i].name.indexOf(delimiter) > -1)
-				searchList.push(championsList[i].name);
+			var lim = championsList.length;
+			for (int i = 0; i < lim; i++)
+			{
+				if(championsList[i].name.indexOf(delimiter) > -1)
+					searchList.push(championsList[i].name);
+			}
 		}
-		
+		else
+			searchList = championsList;
+			
 		lim = searchList.length;
 		var inner = "";
 		for (int i = 0; i < lim; i++)
@@ -104,6 +94,11 @@
 	function Select(id) {
 		$("div.box").css("background-color", "#FF0000");
 		$("div#" + id).css("background-color", "#FFFF00");
+	}
+	
+	//onLoad
+	$(document).ready({
+		PopulateList();
 	}
 	</script>
 </body>
