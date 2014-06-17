@@ -70,6 +70,10 @@
 		}
 		$("div#scroll").html(inner);
 		Select("div#" + selected);
+		$("div.box").click(function() {
+			selected = $(this).attr("id");
+			Select("div#" + selected);
+		});
 	}
 	
 	//Selector
@@ -88,7 +92,6 @@
 			PopulateList();
 		});
 		$("div.box").click(function() {
-			alert("hi");
 			selected = $(this).attr("id");
 			Select("div#" + selected);
 		});
