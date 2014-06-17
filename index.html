@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LolKeep</title>
+	<title>LoLKeep</title>
 	<link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
 </head>
 <body>
@@ -127,7 +127,7 @@
 		});
 	
 		//Search Box
-		$("#searchbox").keypress(function(event) { //keyup or keypress?
+		$("#searchbox").keydown(function(event) {
 			if (event.which == 13) //Enter
 				Select(searchList[0]);
 			else if (event.which == 27) //Escape
