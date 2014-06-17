@@ -112,10 +112,10 @@
 			{
 				selected = searchList[0];
 				Select("div#" + selected);
-				$("searchbox").val(keyNameList[selected]);
+				$("#searchbox").val(keyNameList[selected]);
 			}
 			else if (event.which == 27)
-				$("searchbox").val("");
+				$("#searchbox").val("");
 			PopulateList();
 		});
 	});
