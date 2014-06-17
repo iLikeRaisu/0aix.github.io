@@ -44,13 +44,13 @@
 	//Champion list
 	function PopulateList() {
 		searchList = [];
-		var delimiter = $("#searchbox").val();
+		var delimiter = $("#searchbox").val().toLowerCase();
 		if (delimiter != "")
 		{
 			var lim = championsList.length;
 			for (var i = 0; i < lim; i++)
 			{
-				if(championsList[i].name.indexOf(delimiter) > -1)
+				if(championsList[i].name.toLowerCase().indexOf(delimiter) > -1)
 					searchList.push(championsList[i].name);
 			}
 		}
@@ -88,6 +88,7 @@
 			PopulateList();
 		});
 		$("div.box").click(function() {
+			alert("hi");
 			selected = $(this).attr("id");
 			Select("div#" + selected);
 		});
