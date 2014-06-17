@@ -69,13 +69,7 @@
 			inner += '<div class="box" id="' + name + '"><div class="imgsection"><img class="icon" src="champions/' + name + '.png"></div><div class="txtsection"><h1>' + name + '</h1></div></div>';
 		}
 		$("div#scroll").html(inner);
-		Select(selected);
-	}
-	
-	//...
-	function ClearList() {
-		searchList = [];
-		//$("div#scroll).html("");
+		Select("div#" + selected);
 	}
 	
 	//Selector
@@ -91,15 +85,15 @@
 			for (var key in champions)
 				championsList.push({ "name": champions[key].name, "title": champions[key].title });
 			championsList = sortByKey(championsList, "name");
+			PopulateList();
 		});
 		$("div.box").click(function() {
 			selected = $(this).attr("id");
 			Select("div#" + selected);
 		});
-		$("#searchbox").change(function() {
+		$("#searchbox").keyup(function() {
 			PopulateList();
 		});
-		PopulateList();
 	});
 	</script>
 </body>
