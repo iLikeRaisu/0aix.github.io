@@ -78,8 +78,11 @@
 	
 	//Selector
 	function Select(id) {
-		$("div.box").css("background-color", "#FF0000");
-		$(id).css("background-color", "#FFFF00");
+		if (id != "div#")
+		{
+			$("div.box").css("background-color", "#FF0000");
+			$(id).css("background-color", "#FFFF00");
+		}
 	}
 	
 	//onLoad
@@ -91,7 +94,7 @@
 			championsList = sortByKey(championsList, "name");
 			PopulateList();
 		});
-		$("div.box").click(function() {
+		$(".box").click(function() {
 			selected = $(this).attr("id");
 			Select("div#" + selected);
 		});
