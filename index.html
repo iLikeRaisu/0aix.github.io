@@ -62,7 +62,10 @@
 			inner += '<div class="box" id="' + key + '"><div class="imgsection"><img class="icon" src="champions/' + keyNameList[key] + '.png"></div><div class="txtsection"><h1>' + keyNameList[key] + '</h1></div></div>';
 		}
 		$("div#scroll").html(inner);
-		Select(selected);
+		//Highlight selected
+		$("div.box").css("background-color", "#FF0000");
+		$(("div#" + id)).css("background-color", "#FFFF00");
+		//
 		$("div.box").click(function() {
 			Select($(this).attr("id"));
 		});
