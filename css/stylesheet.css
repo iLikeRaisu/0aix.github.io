@@ -4,12 +4,6 @@
 	padding: 0;
 }
 
-html, body
-{
-	height: 100%;
-	width: 100%;
-}
-
 main, #leftbar, #search
 {
 	-webkit-touch-callout: none;
@@ -25,6 +19,26 @@ body
 	background-color: #143967;
 	font-family: Helvetica, Arial, Sans-Serif;
 	font-size: 62.5%;
+	height: 100%;
+	width: 100%;
+}
+
+header
+{
+	background-color: #FFFFFF;
+	top: 0;
+	height: 4em;
+	width: 100%;
+	position: absolute;
+}
+
+footer
+{
+	background-color: #FFFFFF;
+	bottom: 0;
+	height: 4em;
+	width: 100%;
+	position: absolute;
 }
 
 main
@@ -36,6 +50,8 @@ main
 	right: 0;
 	margin-bottom: 4em;
 	position: absolute;
+	overflow: hidden;
+	cursor: default;
 }
 
 #leftbar
@@ -71,7 +87,47 @@ main
 	width: 15em;
 	margin: 1em;
 	position: absolute;
-	overflow: hidden;
+}
+
+.left
+{
+	background-color: #FF00FF;
+	top: 0;
+	bottom: 0;
+	left: -1em;
+	width: 1em;
+	position: absolute;
+}
+
+
+.top
+{
+	background-color: #FF00FF;
+	top: -1em;
+	left: -1em;
+	right: -1em;
+	height: 1em;
+	position: absolute;
+}
+
+.right
+{
+	background-color: #FF00FF;
+	top: 0;
+	bottom: 0;
+	right: -1em;
+	width: 1em;
+	position: absolute;
+}
+
+.bottom
+{
+	background-color: #FF00FF;
+	bottom: -1em;
+	left: -1em;
+	right: -1em;
+	height: 1em;
+	position: absolute;
 }
 
 h1
@@ -85,12 +141,18 @@ h1
 
 .box
 {
-	background-color: #FF0000;
+	background: -webkit-linear-gradient(rgb(13,41,76), rgb(43,94,157)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(13,41,76), rgb(43,94,157)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(13,41,76), rgb(43,94,157)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(13,41,76), rgb(43,94,157)); /* Standard syntax */
+	border: 0.1em solid #27436A;
+	border-radius: 0.3em;
 	height: 3em;
 	width: 15em;
 	margin-bottom: 0.2em;
 	line-height: 3em;
 	cursor: pointer;
+	color: rgb(233,233,233);
 }
 
 .icon
@@ -118,4 +180,90 @@ h1
 	height: 3em;
 	width: 12em;
 	line-height: 3em;
+}
+
+#basicinfo
+{
+	background-color: #0FFFFF;
+	top: 0;
+	left: 0;
+	height: 15em;
+	width: 80em;
+	margin: 2em;
+	position: absolute;
+	overflow: hidden;
+}
+
+#titlecontainer
+{
+	background-color: #FFFFFF;
+	top: 0;
+	left: 0;
+	height: 12em;
+	width: 40em;
+	position: absolute;
+	overflow: hidden;
+}
+
+div#avatar
+{
+	display: inline;
+	float: left;
+	height: 12em;
+	width: 12em;
+	pointer-events: none;
+}
+
+.avatar
+{
+	height: 12em;
+	width: 12em;
+}
+
+.nametitle
+{
+	display: inline;
+	float: left;
+	margin-left: 1em;
+	height: 12em;
+}
+
+#role
+{
+	bottom: 0;
+	background-color: #abcdef;
+	height: 3em;
+	width: 40em;
+	line-height: 3em;
+	position: absolute;
+}
+
+h2
+{
+	color: #000BBF;	
+	font-size: 4em;	
+}
+
+h3
+{
+	color: #9797FC;	
+	font-size: 2em;	
+}
+
+span#text
+{
+	margin-left: 0.5em;
+	font-size: 1.5em;
+}
+
+#statistics
+{
+	display: inline;
+	top: 0;
+	left: 40em;
+	background-color: #fedcba;
+	height: 15em;
+	width: 40em;
+	position: absolute;
+	overflow: hidden;
 }
