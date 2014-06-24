@@ -25,6 +25,10 @@ body
 
 header
 {
+	background: -webkit-linear-gradient(rgb(28,67,116) 50%, rgb(13,41,76)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(28,67,116) 50%, rgb(13,41,76)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(28,67,116) 50%, rgb(13,41,76)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(28,67,116) 50%, rgb(13,41,76)); /* Standard syntax */
 	background-color: #FFFFFF;
 	top: 0;
 	height: 4em;
@@ -34,6 +38,10 @@ header
 
 footer
 {
+	background: -webkit-linear-gradient(rgb(43,94,157), rgb(28,68,117) 50%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(43,94,157) rgb(28,68,117) 50%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(43,94,157), rgb(28,68,117) 50%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(43,94,157), rgb(28,68,117) 50%); /* Standard syntax */
 	background-color: #FFFFFF;
 	bottom: 0;
 	height: 4em;
